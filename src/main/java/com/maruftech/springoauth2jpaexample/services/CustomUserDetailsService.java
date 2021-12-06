@@ -32,10 +32,10 @@ public class CustomUserDetailsService implements UserDetailsService {
                 .map(u -> new org.springframework.security.core.userdetails.User(
                 u.getUsername(),
                 u.getPassword(),
-                u.isActive(),
-                u.isActive(),
-                u.isActive(),
-                u.isActive(),
+                u.isActive(),          // Optional, enabled?
+                true,   // Optional, accountNonExpired?
+                true, // Optional, credentialsNonExpired?
+               true,     // Optional, accountNonLocked?
                 AuthorityUtils.createAuthorityList(
                         u.getRoles()
                                 .stream()
